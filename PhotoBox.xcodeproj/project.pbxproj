@@ -17,6 +17,8 @@
 		8D8DE4991E953B3A00C19820 /* ProgressHUD.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8D8DE4911E953B3A00C19820 /* ProgressHUD.bundle */; };
 		8D8DE49A1E953B3A00C19820 /* ProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8DE4931E953B3A00C19820 /* ProgressHUD.m */; };
 		8D8DE49B1E953B3A00C19820 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8DE4961E953B3A00C19820 /* Reachability.m */; };
+		8D8DE49E1E953E1500C19820 /* BEPhotoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8DE49D1E953E1500C19820 /* BEPhotoItem.m */; };
+		8D8DE4A11E953E2100C19820 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 8D8DE4A01E953E2100C19820 /* Utils.m */; };
 		8DBF93501E8DF83600C156DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DBF934F1E8DF83600C156DB /* AppDelegate.swift */; };
 		8DBF93551E8DF83600C156DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8DBF93531E8DF83600C156DB /* Main.storyboard */; };
 		8DBF93571E8DF83600C156DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8DBF93561E8DF83600C156DB /* Assets.xcassets */; };
@@ -66,6 +68,10 @@
 		8D8DE4931E953B3A00C19820 /* ProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProgressHUD.m; sourceTree = "<group>"; };
 		8D8DE4951E953B3A00C19820 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		8D8DE4961E953B3A00C19820 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		8D8DE49C1E953E1500C19820 /* BEPhotoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BEPhotoItem.h; path = vendors/Backendless/BEPhotoItem.h; sourceTree = "<group>"; };
+		8D8DE49D1E953E1500C19820 /* BEPhotoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BEPhotoItem.m; path = vendors/Backendless/BEPhotoItem.m; sourceTree = "<group>"; };
+		8D8DE49F1E953E2100C19820 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Utils.h; path = vendors/Utils/Utils.h; sourceTree = "<group>"; };
+		8D8DE4A01E953E2100C19820 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Utils.m; path = vendors/Utils/Utils.m; sourceTree = "<group>"; };
 		8DBF934C1E8DF83600C156DB /* PhotoBox.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhotoBox.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8DBF934F1E8DF83600C156DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8DBF93541E8DF83600C156DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -132,6 +138,8 @@
 			isa = PBXGroup;
 			children = (
 				8DBF93A91E8ED08A00C156DB /* Helpers.swift */,
+				8D8DE49F1E953E2100C19820 /* Utils.h */,
+				8D8DE4A01E953E2100C19820 /* Utils.m */,
 			);
 			name = Tools;
 			sourceTree = "<group>";
@@ -139,6 +147,8 @@
 		8D8DE4661E933EEB00C19820 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				8D8DE49C1E953E1500C19820 /* BEPhotoItem.h */,
+				8D8DE49D1E953E1500C19820 /* BEPhotoItem.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -583,11 +593,13 @@
 				8DBF93A81E8ED07400C156DB /* PersistencyManager.swift in Sources */,
 				8DBF93B01E8EE0F300C156DB /* PhotoItem.swift in Sources */,
 				8D8DE4971E953B3A00C19820 /* NYAlertView.m in Sources */,
+				8D8DE4A11E953E2100C19820 /* Utils.m in Sources */,
 				8D8DE49B1E953B3A00C19820 /* Reachability.m in Sources */,
 				8DBF93861E8DF91400C156DB /* PhotoItemCollectionViewCell.swift in Sources */,
 				8D8DE46E1E948EB500C19820 /* BackendlessClient.swift in Sources */,
 				8DBF93AE1E8EE09000C156DB /* DataBox.xcdatamodeld in Sources */,
 				8DBF93501E8DF83600C156DB /* AppDelegate.swift in Sources */,
+				8D8DE49E1E953E1500C19820 /* BEPhotoItem.m in Sources */,
 				8D8DE4701E948ED800C19820 /* PhotoAPI.swift in Sources */,
 				8D8DE4981E953B3A00C19820 /* NYAlertViewController.m in Sources */,
 				8D8DE49A1E953B3A00C19820 /* ProgressHUD.m in Sources */,
