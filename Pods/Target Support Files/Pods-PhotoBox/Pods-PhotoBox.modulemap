@@ -1,0 +1,6 @@
+framework module Pods_PhotoBox {
+  umbrella header "Pods-PhotoBox-umbrella.h"
+
+  export *
+  module * { export * }
+}
