@@ -64,7 +64,7 @@ class BackendlessClient: NSObject {
         backendless.persistenceService.save(item, response: { (response: Any?) in
             successBlock()
         }, error: { (fault: Fault?) in
-            print("createPhotoItem: \(fault?.description)")
+            print("createPhotoItem: \(fault?.description ?? "nil error message")")
             errorBlock(fault)
         })
     }
@@ -77,7 +77,7 @@ class BackendlessClient: NSObject {
         backendless.persistenceService.save(object, response: { (response: Any?) in
             successBlock(response)
         }, error: { (fault: Fault?) in
-            print("deletePhotoItem: \(fault?.message)")
+            print("deletePhotoItem: \(fault?.message ?? "nil error message")")
             errorBlock(fault)
         })
     }
@@ -99,7 +99,7 @@ class BackendlessClient: NSObject {
             successBlock(backendlessCollection?.data)
             
         }) { (fault: Fault?) in
-            print("getPhotoItems: \(fault?.message)")
+            print("getPhotoItems: \(fault?.message ?? "nil error message")")
             errorBlock(fault)
         }
     }
@@ -145,11 +145,11 @@ class BackendlessClient: NSObject {
                 
                 
             }, error: { (fault: Fault?) in
-                print("upload thumbnail: \(fault?.message)")
+                print("upload thumbnail: \(fault?.message ?? "nil error message")")
                 errorBlock(fault)
             })
             }, error: { (fault: Fault?) in
-                print("upload thumbnail: \(fault?.message)")
+                print("upload thumbnail: \(fault?.message ?? "nil error message")")
                 errorBlock(fault)
         })
     }

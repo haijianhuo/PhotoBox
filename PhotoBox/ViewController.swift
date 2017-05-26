@@ -359,6 +359,26 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         return count
     }
     
+    func uploadImage(_ image: UIImage) {
+        
+        ProgressHUD.show("Uploading...", interaction: true)
+        
+        photoAPI.uploadImages(image: image, successBlock: { (imageUrl: String?) in
+            print("uploadImages success")
+            if let imageUrl = imageUrl {
+                SDImageCache.shared().store(image, forKey: imageUrl, completion: {
+                    //print("store image: \(imageUrl)")
+                    DispatchQueue.main.async() {
+                        self.syncData()
+                    }
+                })
+            }
+        }, errorBlock: { (fault: Fault?) in
+            ProgressHUD.showError(kServerError)
+            print("uploadImages error")
+        })
+    }
+
 }
 
 
@@ -530,28 +550,9 @@ extension ViewController: ImagePickerDelegate
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
         imagePicker.dismiss(animated: true, completion: nil)
         if images.count > 0 {
-            
-            ProgressHUD.show("Uploading...", interaction: true)
-            
-            let image = images[0]
-            
-            photoAPI.uploadImages(image: image, successBlock: { (imageUrl: String?) in
-                print("uploadImages success")
-                if let imageUrl = imageUrl {
-                    SDImageCache.shared().store(image, forKey: imageUrl, completion: {
-                        //print("store image: \(imageUrl)")
-                        DispatchQueue.main.async() {
-                            self.syncData()
-                        }
-                    })
-                }
-            }, errorBlock: { (fault: Fault?) in
-                ProgressHUD.showError(kServerError)
-                print("uploadImages error")
-            })
-            
+            self.uploadImage(images[0])
         }
-        
     }
+
 
 }

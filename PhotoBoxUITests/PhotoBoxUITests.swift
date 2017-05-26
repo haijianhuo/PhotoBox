@@ -31,6 +31,44 @@ class PhotoBoxUITests: XCTestCase {
     func testExample() {
         // Use recording to get started writing UI tests.
         // Use XCTAssert and related functions to verify your tests produce the correct results.
+        
+        let app = XCUIApplication()
+        app.navigationBars["Cloud Photos"].buttons["Add"].tap()
+        app.collectionViews.children(matching: .cell).matching(identifier: "Photo").element(boundBy: 0).tap()
+        app.buttons["Upload"].tap()
+        sleep(2)
+        
+        app.collectionViews.children(matching: .cell).element(boundBy: 0).children(matching: .other).element.tap()
+        
+        let scrollView = app.children(matching: .window).element(boundBy: 0).children(matching: .other).element.children(matching: .other).element.children(matching: .scrollView).element
+        scrollView.tap()
+        app.otherElements.containing(.navigationBar, identifier:"Cloud Photos").children(matching: .other).element.children(matching: .other).element.children(matching: .other).element.children(matching: .image).element.tap()
+        scrollView.tap()
+        sleep(2)
+        
+        app.navigationBars["Cloud Photos"].buttons["Delete"].tap()
+        app.children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 1).buttons["Delete"].tap()
+        sleep(2)
+        
+        XCUIDevice.shared().orientation = .portrait
+        XCUIDevice.shared().orientation = .landscapeLeft
+        
+        app.collectionViews.children(matching: .cell).element(boundBy: 1).children(matching: .other).element.tap()
+        
+        scrollView.tap()
+        
+        let element = app.otherElements.containing(.navigationBar, identifier:"Cloud Photos").children(matching: .other).element.children(matching: .other).element.children(matching: .other).element
+        element.children(matching: .image).element.tap()
+        scrollView.tap()
+        
+        let collectionView = element.children(matching: .collectionView).element
+        collectionView.swipeDown()
+        sleep(2)
+        XCUIDevice.shared().orientation = .portrait
+        collectionView.swipeDown()
+        sleep(2)
+
+        
     }
-    
+
 }
