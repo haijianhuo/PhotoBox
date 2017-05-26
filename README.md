@@ -36,5 +36,5 @@ Build and run the app with Xcode, the server side table schema will be created a
 
 ## Requirements
 
-- iOS 8.2+
-- Xcode 8.2
+- iOS 9.0+
+- Xcode 8.3.2
