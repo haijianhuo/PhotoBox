@@ -15,10 +15,9 @@ Replace the APP_ID and SECRET_KEY in BackendlessClient.swift with the Applicatio
 Build and run the app with Xcode, the server side table schema will be created automatically once the first photo is uploaded.
 */
 
-let APP_ID = ""
-let SECRET_KEY = ""
-let REST_KEY = ""
-let VERSION_NUM = "v1"
+let APP_ID = "7AA285ED-AFC0-170B-FF60-752C5A46B500"
+let SECRET_KEY = "A31F0373-47F8-C903-FFCE-312D76268A00"
+let REST_KEY = "8D4491EB-7C12-D13C-FF65-3D3D846F9E00"
 
 let backendless = Backendless.sharedInstance()!
 
@@ -51,7 +50,8 @@ class BackendlessClient: NSObject {
 
     override init() {
         super.init()
-        backendless.initApp(APP_ID, secret: SECRET_KEY, version: VERSION_NUM)
+        backendless.hostURL = "https://api.backendless.com"
+        backendless.initApp(APP_ID, apiKey: SECRET_KEY)
         backendless.initAppFault()
      }
 
@@ -91,12 +91,12 @@ class BackendlessClient: NSObject {
             whereClause = "created > '\(maxDateString)' or updated > '\(maxDateString)'"
         }
         //print("whereClause: \(whereClause)")
-        let dataQuery = BackendlessDataQuery()
-        dataQuery.whereClause = whereClause
-        dataQuery.queryOptions.sortBy = ["created DESC"]
-        dataQuery.queryOptions.pageSize = NSNumber(value: 100)
-        backendless.persistenceService.find(BEPhotoItem.ofClass(), dataQuery: dataQuery, response: { (backendlessCollection: BackendlessCollection?) in
-            successBlock(backendlessCollection?.data)
+        let dataQuery = DataQueryBuilder()!
+        dataQuery.setWhereClause(whereClause)
+        dataQuery.setSortBy(["created DESC"])
+        dataQuery.setPageSize(100)
+        backendless.persistenceService.find(BEPhotoItem.ofClass(), queryBuilder: dataQuery, response: { (objects: [Any]?) in
+            successBlock(objects)
             
         }) { (fault: Fault?) in
             print("getPhotoItems: \(fault?.message ?? "nil error message")")
@@ -127,9 +127,9 @@ class BackendlessClient: NSObject {
             thumbnail = image
         }
         
-        backendless.fileService.upload(fileNameSmallSize, content: UIImageJPEGRepresentation(thumbnail, kCompressionQuality), response: { [weak self] (backendlessFile: BackendlessFile?) in
+        backendless.fileService.saveFile(fileNameSmallSize, content: UIImageJPEGRepresentation(thumbnail, kCompressionQuality), response: { [weak self] (backendlessFile: BackendlessFile?) in
             let thumbnailUrl = backendlessFile?.fileURL
-            backendless.fileService.upload(fileNameLargeSize, content: UIImageJPEGRepresentation(image, kCompressionQuality), response: { (backendlessFile: BackendlessFile?) in
+            backendless.fileService.saveFile(fileNameLargeSize, content: UIImageJPEGRepresentation(image, kCompressionQuality), response: { (backendlessFile: BackendlessFile?) in
                 guard let strongSelf = self else {
                     errorBlock(nil)
                     return
@@ -157,24 +157,54 @@ class BackendlessClient: NSObject {
     
     // RESTful APIs
     
-    func bulkDeleteTable(table: String, whereClause: String, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void)  {
+    func bulkDeleteTable(table: String, whereClause: String, successBlock: @escaping (String) -> Void, errorBlock: @escaping () -> Void)  {
         
-        let whereClauseEncoded = whereClause.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlHostAllowed)
+        let unreserved = "-._~/?"
+        let allowed = NSMutableCharacterSet.alphanumeric()
+        allowed.addCharacters(in: unreserved)
+        let whereClauseEncoded = whereClause.addingPercentEncoding(withAllowedCharacters: allowed as CharacterSet)
         
-        let urlString = String(format:"https://api.backendless.com/%@/data/bulk/%@?where=%@",VERSION_NUM, table, whereClauseEncoded!)
+        
+        //(withAllowedCharacters: NSCharacterSet.urlHostAllowed)
+        
+        let urlString = String(format:"https://api.backendless.com/%@/%@/data/bulk/%@?where=%@", APP_ID, SECRET_KEY, table, whereClauseEncoded!)
         
         let url = URL(string: urlString)!
         
         let request: NSMutableURLRequest = NSMutableURLRequest(url: url)
         request.httpMethod = "DELETE"
         request.httpShouldHandleCookies = false
-        request.addValue(APP_ID, forHTTPHeaderField: "application-id")
-        request.addValue(REST_KEY, forHTTPHeaderField: "secret-key")
+        //        request.addValue(APP_ID, forHTTPHeaderField: "application-id")
+        //        request.addValue(SECRET_KEY, forHTTPHeaderField: "secret-key")
         request.addValue("REST", forHTTPHeaderField: "application-type")
+        
         
         let session = URLSession.shared
         let task = session.dataTask(with: request as URLRequest, completionHandler: {data, response, error -> Void in
-            completionHandler(data, response, error)
+            //print("Response: \(response)")
+            if error != nil {
+                errorBlock()
+            }
+            else {
+                var message: String?
+                if let data = data {
+                    if data.count > 0 {
+                        if let string = String(data: data, encoding: .utf8) {
+                            print("bulkDeleteTable: \(string)")
+                            if string.characters.count < 10 {
+                                message = string
+                            }
+                        }
+                    }
+                }
+                if let message = message {
+                    successBlock(message)
+                }
+                else {
+                    errorBlock()
+                }
+            }
+            
         })
         task.resume()
     }

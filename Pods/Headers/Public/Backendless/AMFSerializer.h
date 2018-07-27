@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/AMFSerializer.h
+../../../Backendless/SDK/ios/backendless/include/AMFSerializer.h

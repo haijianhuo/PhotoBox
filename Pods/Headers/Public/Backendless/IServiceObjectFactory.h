@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/IServiceObjectFactory.h
+../../../Backendless/SDK/ios/backendless/include/IServiceObjectFactory.h

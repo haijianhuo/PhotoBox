@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/IStreamDispatcher.h
+../../../Backendless/SDK/ios/backendless/include/IStreamDispatcher.h

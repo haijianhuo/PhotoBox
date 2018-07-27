@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/BaseRTMPProtocolEncoder.h
+../../../Backendless/SDK/ios/backendless/include/BaseRTMPProtocolEncoder.h

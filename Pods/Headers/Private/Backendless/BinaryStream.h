@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/BinaryStream.h
+../../../Backendless/SDK/ios/backendless/include/BinaryStream.h

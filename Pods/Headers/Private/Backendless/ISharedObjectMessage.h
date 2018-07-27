@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/ISharedObjectMessage.h
+../../../Backendless/SDK/ios/backendless/include/ISharedObjectMessage.h

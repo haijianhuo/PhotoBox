@@ -31,8 +31,8 @@ typedef struct {
     GEO_POINT southEast;
 } GEO_RECT;
 
-@class GeoPoint, BackendlessCollection, BackendlessGeoQuery, GeoCategory, Fault;
-@protocol IResponder, IGeofenceCallback;
+@class GeoPoint, BackendlessGeoQuery, GeoCategory, Fault;
+@protocol IGeofenceCallback;
 
 @interface GeoService : NSObject
 
@@ -40,71 +40,35 @@ typedef struct {
 
 // sync methods with fault return (as exception)
 -(GeoCategory *)addCategory:(NSString *)categoryName;
--(id)deleteCategory:(NSString *)categoryName;
+-(NSNumber *)deleteCategory:(NSString *)categoryName;
 -(GeoPoint *)savePoint:(GeoPoint *)geoPoint;
--(NSArray<NSString *> *)getCategories;
--(BackendlessCollection *)getPoints:(BackendlessGeoQuery *)query;
--(BackendlessCollection *)getClusterPoints:(GeoCluster *)geoCluster;
--(BackendlessCollection *)getFencePoints:(NSString *)geoFenceName;
--(BackendlessCollection *)getFencePoints:(NSString *)geoFenceName query:(BackendlessGeoQuery *)query;
--(BackendlessCollection *)relativeFind:(BackendlessGeoQuery *)query;
+-(NSArray<GeoCategory *> *)getCategories;
+-(NSArray<GeoPoint *> *)getPoints:(BackendlessGeoQuery *)query;
+-(NSArray<GeoPoint *> *)getClusterPoints:(GeoCluster *)geoCluster;
+-(NSArray<GeoPoint *> *)getFencePoints:(NSString *)geoFenceName;
+-(NSArray<GeoPoint *> *)getFencePoints:(NSString *)geoFenceName query:(BackendlessGeoQuery *)query;
+-(NSArray *)relativeFind:(BackendlessGeoQuery *)query;
 -(id)removePoint:(GeoPoint *)geoPoint;
 -(GeoPoint *)loadMetadata:(GeoPoint *)geoPoint;
--(id)runOnEnterAction:(NSString *)geoFenceName;
--(id)runOnEnterAction:(NSString *)geoFenceName geoPoint:(GeoPoint *)geoPoint;
--(id)runOnStayAction:(NSString *)geoFenceName;
--(id)runOnStayAction:(NSString *)geoFenceName geoPoint:(GeoPoint *)geoPoint;
--(id)runOnExitAction:(NSString *)geoFenceName;
--(id)runOnExitAction:(NSString *)geoFenceName geoPoint:(GeoPoint *)geoPoint;
-
-// sync methods with fault option
--(GeoCategory *)addCategory:(NSString *)categoryName error:(Fault **)fault;
--(BOOL)deleteCategory:(NSString *)categoryName error:(Fault **)fault;
--(GeoPoint *)savePoint:(GeoPoint *)geoPoint error:(Fault **)fault;
--(NSArray<NSString *> *)getCategoriesError:(Fault **)fault;
--(BackendlessCollection *)getPoints:(BackendlessGeoQuery *)query error:(Fault **)fault;
--(BackendlessCollection *)getClusterPoints:(GeoCluster *)geoCluster error:(Fault **)fault;
--(BackendlessCollection *)getFencePoints:(NSString *)geoFenceName error:(Fault **)fault;
--(BackendlessCollection *)getFencePoints:(NSString *)geoFenceName query:(BackendlessGeoQuery *)query error:(Fault **)fault;
--(BackendlessCollection *)relativeFind:(BackendlessGeoQuery *)query error:(Fault **)fault;
--(BOOL)removePoint:(GeoPoint *)geoPoint error:(Fault **)fault;
--(GeoPoint *)loadMetadata:(GeoPoint *)geoPoint error:(Fault **)fault;
--(BOOL)runOnEnterAction:(NSString *)geoFenceName error:(Fault **)fault;
--(BOOL)runOnEnterAction:(NSString *)geoFenceName geoPoint:(GeoPoint *)geoPoint error:(Fault **)fault;
--(BOOL)runOnStayAction:(NSString *)geoFenceName error:(Fault **)fault;
--(BOOL)runOnStayAction:(NSString *)geoFenceName geoPoint:(GeoPoint *)geoPoint error:(Fault **)fault;
--(BOOL)runOnExitAction:(NSString *)geoFenceName error:(Fault **)fault;
--(BOOL)runOnExitAction:(NSString *)geoFenceName geoPoint:(GeoPoint *)geoPoint error:(Fault **)fault;
-
-// async methods with responder
--(void)addCategory:(NSString *)categoryName responder:(id <IResponder>)responder;
--(void)deleteCategory:(NSString *)categoryName responder:(id <IResponder>)responder;
--(void)savePoint:(GeoPoint *)geoPoint responder:(id <IResponder>)responder;
--(void)getCategories:(id <IResponder>)responder;
--(void)getPoints:(BackendlessGeoQuery *)query responder:(id <IResponder>)responder;
--(void)getClusterPoints:(GeoCluster *)geoCluster responder:(id <IResponder>)responder;
--(void)getFencePoints:(NSString *)geoFenceName responder:(id<IResponder>)responder;
--(void)getFencePoints:(NSString *)geoFenceName query:(BackendlessGeoQuery *)query responder:(id<IResponder>)responder;
--(void)relativeFind:(BackendlessGeoQuery *)query responder:(id<IResponder>)responder;
--(void)removePoint:(GeoPoint *)geoPoint responder:(id <IResponder>)responder;
--(void)loadMetadata:(GeoPoint *)geoPoint responder:(id<IResponder>)responder;
--(void)runOnEnterAction:(NSString *)geoFenceName responder:(id<IResponder>)responder;
--(void)runOnEnterAction:(NSString *)geoFenceName geoPoint:(GeoPoint *)geoPoint responder:(id<IResponder>)responder;
--(void)runOnStayAction:(NSString *)geoFenceName responder:(id<IResponder>)responder;
--(void)runOnStayAction:(NSString *)geoFenceName geoPoint:(GeoPoint *)geoPoint responder:(id<IResponder>)responder;
--(void)runOnExitAction:(NSString *)geoFenceName responder:(id<IResponder>)responder;
--(void)runOnExitAction:(NSString *)geoFenceName geoPoint:(GeoPoint *)geoPoint responder:(id<IResponder>)responder;
+-(NSNumber *)runOnEnterAction:(NSString *)geoFenceName;
+-(NSNumber *)runOnEnterAction:(NSString *)geoFenceName geoPoint:(GeoPoint *)geoPoint;
+-(NSNumber *)runOnStayAction:(NSString *)geoFenceName;
+-(NSNumber *)runOnStayAction:(NSString *)geoFenceName geoPoint:(GeoPoint *)geoPoint;
+-(NSNumber *)runOnExitAction:(NSString *)geoFenceName;
+-(NSNumber *)runOnExitAction:(NSString *)geoFenceName geoPoint:(GeoPoint *)geoPoint;
+-(NSNumber *)getGeopointCount:(BackendlessGeoQuery *)query;
+-(NSNumber *)getGeopointCount:(NSString *)geoFenceName query:(BackendlessGeoQuery *)query;
 
 // async methods with block-based callbacks
 -(void)addCategory:(NSString *)categoryName response:(void(^)(GeoCategory *))responseBlock error:(void(^)(Fault *))errorBlock;
--(void)deleteCategory:(NSString *)categoryName response:(void(^)(id))responseBlock error:(void(^)(Fault *))errorBlock;
+-(void)deleteCategory:(NSString *)categoryName response:(void(^)(NSNumber *))responseBlock error:(void(^)(Fault *))errorBlock;
 -(void)savePoint:(GeoPoint *)geoPoint response:(void(^)(GeoPoint *))responseBlock error:(void(^)(Fault *))errorBlock;
--(void)getCategories:(void(^)(NSArray<NSString *> *))responseBlock error:(void(^)(Fault *))errorBlock;
--(void)getPoints:(BackendlessGeoQuery *)query response:(void(^)(BackendlessCollection *))responseBlock error:(void(^)(Fault *))errorBlock;
--(void)getClusterPoints:(GeoCluster *)geoCluster response:(void(^)(BackendlessCollection *))responseBlock error:(void(^)(Fault *))errorBlock;
--(void)getFencePoints:(NSString *)geoFenceName response:(void(^)(BackendlessCollection *))responseBlock error:(void(^)(Fault *))errorBlock;
--(void)getFencePoints:(NSString *)geoFenceName query:(BackendlessGeoQuery *)query response:(void(^)(BackendlessCollection *))responseBlock error:(void(^)(Fault *))errorBlock;
--(void)relativeFind:(BackendlessGeoQuery *)query response:(void(^)(BackendlessCollection *))responseBlock error:(void(^)(Fault *))errorBlock;
+-(void)getCategories:(void(^)(NSArray<GeoCategory *> *))responseBlock error:(void(^)(Fault *))errorBlock;
+-(void)getPoints:(BackendlessGeoQuery *)query response:(void(^)(NSArray<GeoPoint *> *))responseBlock error:(void(^)(Fault *))errorBlock;
+-(void)getClusterPoints:(GeoCluster *)geoCluster response:(void(^)(NSArray<GeoPoint *> *))responseBlock error:(void(^)(Fault *))errorBlock;
+-(void)getFencePoints:(NSString *)geoFenceName response:(void(^)(NSArray<GeoPoint *> *))responseBlock error:(void(^)(Fault *))errorBlock;
+-(void)getFencePoints:(NSString *)geoFenceName query:(BackendlessGeoQuery *)query response:(void(^)(NSArray<GeoPoint *> *))responseBlock error:(void(^)(Fault *))errorBlock;
+-(void)relativeFind:(BackendlessGeoQuery *)query response:(void(^)(NSArray *))responseBlock error:(void(^)(Fault *))errorBlock;
 -(void)removePoint:(GeoPoint *)geoPoint response:(void(^)(id))responseBlock error:(void(^)(Fault *))errorBlock;
 -(void)loadMetadata:(GeoPoint *)geoPoint response:(void (^)(id))responseBlock error:(void (^)(Fault *))errorBlock;
 -(void)runOnEnterAction:(NSString *)geoFenceName response:(void(^)(NSNumber *))responseBlock error:(void(^)(Fault *))errorBlock;
@@ -113,23 +77,18 @@ typedef struct {
 -(void)runOnStayAction:(NSString *)geoFenceName geoPoint:(GeoPoint *)geoPoint response:(void(^)(NSNumber *))responseBlock error:(void(^)(Fault *))errorBlock;
 -(void)runOnExitAction:(NSString *)geoFenceName response:(void(^)(NSNumber *))responseBlock error:(void(^)(Fault *))errorBlock;
 -(void)runOnExitAction:(NSString *)geoFenceName geoPoint:(GeoPoint *)geoPoint response:(void(^)(NSNumber *))responseBlock error:(void(^)(Fault *))errorBlock;
+-(void)getGeopointCount:(BackendlessGeoQuery *)query response:(void(^)(NSNumber *))responseBlock error:(void(^)(Fault *))errorBlock;
+-(void)getGeopointCount:(NSString *)geoFenceName query:(BackendlessGeoQuery *)query response:(void(^)(NSNumber *))responseBlock error:(void(^)(Fault *))errorBlock;
 
 // utilites
--(GEO_RECT)geoRectangle:(GEO_POINT)center length:(double)length widht:(double)widht;
+-(GEO_RECT)geoRectangle:(GEO_POINT)center length:(double)length width:(double)width;
 
 // geo fence monitoring
--(void)startGeofenceMonitoringGeoPoint:(GeoPoint *)geoPoint responder:(id <IResponder>)responder;
--(void)startGeofenceMonitoring:(id <IGeofenceCallback>)callback responder:(id <IResponder>)responder;
--(void)startGeofenceMonitoringGeoPoint:(NSString *)geofenceName geoPoint:(GeoPoint *)geoPoint responder:(id <IResponder>)responder;
--(void)startGeofenceMonitoring:(NSString *)geofenceName callback:(id <IGeofenceCallback>)callback responder:(id <IResponder>)responder;
-
 -(void)startGeofenceMonitoringGeoPoint:(GeoPoint *)geoPoint response:(void (^)(id))responseBlock error:(void (^)(Fault *))errorBlock;
 -(void)startGeofenceMonitoring:(id <IGeofenceCallback>)callback response:(void (^)(id))responseBlock error:(void (^)(Fault *))errorBlock;
 -(void)startGeofenceMonitoringGeoPoint:(NSString *)geofenceName geoPoint:(GeoPoint *)geoPoint response:(void (^)(id))responseBlock error:(void (^)(Fault *))errorBlock;
 -(void)startGeofenceMonitoring:(NSString *)geofenceName callback:(id <IGeofenceCallback>)callback response:(void (^)(id))responseBlock error:(void (^)(Fault *))errorBlock;
-
 -(void)stopGeofenceMonitoring;
--(void)stopGeofenceMonitoring:(NSString *)geofenceName;    
-
+-(void)stopGeofenceMonitoring:(NSString *)geofenceName;
 
 @end

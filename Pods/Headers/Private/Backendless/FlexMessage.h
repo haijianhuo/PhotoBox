@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/FlexMessage.h
+../../../Backendless/SDK/ios/backendless/include/FlexMessage.h

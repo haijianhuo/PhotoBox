@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/Subscription.h
+../../../Backendless/SDK/ios/backendless/include/Subscription.h

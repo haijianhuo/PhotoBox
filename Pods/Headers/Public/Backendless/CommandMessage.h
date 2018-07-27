@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/CommandMessage.h
+../../../Backendless/SDK/ios/backendless/include/CommandMessage.h

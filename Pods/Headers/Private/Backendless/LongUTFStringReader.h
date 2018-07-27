@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/LongUTFStringReader.h
+../../../Backendless/SDK/ios/backendless/include/LongUTFStringReader.h

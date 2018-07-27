@@ -22,12 +22,10 @@
 #import <Foundation/Foundation.h>
 
 typedef enum {
-    PUSH_ONLY,
-    PUSH_ALSO,
-#if 0
-    PUSH_PUBSUB
-#endif
-} PushPolicyEnum;
+    PUSH = 0,
+    PUBSUB = 1,
+    BOTH = 2
+} PublishPolicyEnum;
 
 typedef enum {
     FOR_NONE = 0,
@@ -40,14 +38,12 @@ typedef enum {
 
 
 @interface DeliveryOptions : NSObject
+
 @property (strong, nonatomic) NSMutableArray<NSString *> *pushSinglecast;
 @property (strong, nonatomic) NSDate *publishAt;
 @property (strong, nonatomic) NSDate *repeatExpiresAt;
 
-+(id)deliveryOptionsForNotification:(PushPolicyEnum)pushPolice;
-
--(PushPolicyEnum)valPushPolicy;
--(void)pushPolicy:(PushPolicyEnum)pushPolicy;
+-(void)publishPolicy:(UInt32)publishPolicy;
 -(UInt32)valPushBroadcast;
 -(void)pushBroadcast:(UInt32)pushBroadcast;
 -(long)valRepeatEvery;
@@ -55,4 +51,5 @@ typedef enum {
 -(void)addSinglecast:(NSString *)device;
 -(void)delSinglecast:(NSString *)device;
 -(void)assignSinglecast:(NSArray<NSString *> *)devices;
+
 @end

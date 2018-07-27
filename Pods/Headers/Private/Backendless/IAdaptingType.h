@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/IAdaptingType.h
+../../../Backendless/SDK/ios/backendless/include/IAdaptingType.h

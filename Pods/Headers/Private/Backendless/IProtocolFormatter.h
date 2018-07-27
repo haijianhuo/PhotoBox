@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/IProtocolFormatter.h
+../../../Backendless/SDK/ios/backendless/include/IProtocolFormatter.h

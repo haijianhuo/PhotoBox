@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/AttributeStore.h
+../../../Backendless/SDK/ios/backendless/include/AttributeStore.h

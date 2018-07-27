@@ -11,7 +11,7 @@ target 'PhotoBox' do
   pod 'ImagePicker',                  '~> 2.1.0'
   
   # Objective C
-  pod 'Backendless',                  '~> 3.0.43'
+  pod 'Backendless',                  '~> 4.5.0'
   pod 'JTSImageViewController',       '~> 1.5.1'
   pod 'SDWebImage',                   '~> 4.0.0' 
 

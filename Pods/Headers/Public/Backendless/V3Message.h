@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/V3Message.h
+../../../Backendless/SDK/ios/backendless/include/V3Message.h

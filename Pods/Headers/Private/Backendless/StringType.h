@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/StringType.h
+../../../Backendless/SDK/ios/backendless/include/StringType.h

@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/Responder.h
+../../../Backendless/SDK/ios/backendless/include/Responder.h

@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/IClientSharedObjectDelegate.h
+../../../Backendless/SDK/ios/backendless/include/IClientSharedObjectDelegate.h

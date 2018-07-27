@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/StringWriter.h
+../../../Backendless/SDK/ios/backendless/include/StringWriter.h

@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/BoundPropertyBagReader.h
+../../../Backendless/SDK/ios/backendless/include/BoundPropertyBagReader.h

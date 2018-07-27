@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/IObjectSerializer.h
+../../../Backendless/SDK/ios/backendless/include/IObjectSerializer.h

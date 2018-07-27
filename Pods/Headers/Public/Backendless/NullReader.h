@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/NullReader.h
+../../../Backendless/SDK/ios/backendless/include/NullReader.h

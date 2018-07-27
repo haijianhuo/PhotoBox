@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/ClassDefinition.h
+../../../Backendless/SDK/ios/backendless/include/ClassDefinition.h

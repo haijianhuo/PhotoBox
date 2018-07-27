@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/WeborbClient.h
+../../../Backendless/SDK/ios/backendless/include/WeborbClient.h

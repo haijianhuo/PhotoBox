@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/NotAReader.h
+../../../Backendless/SDK/ios/backendless/include/NotAReader.h

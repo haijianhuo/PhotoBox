@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/ITypeReader.h
+../../../Backendless/SDK/ios/backendless/include/ITypeReader.h

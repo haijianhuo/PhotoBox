@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/BooleanType.h
+../../../Backendless/SDK/ios/backendless/include/BooleanType.h

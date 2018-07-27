@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/ByteArrayType.h
+../../../Backendless/SDK/ios/backendless/include/ByteArrayType.h

@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/DEBUG.h
+../../../Backendless/SDK/ios/backendless/include/DEBUG.h

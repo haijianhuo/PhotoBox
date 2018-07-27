@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/V3ByteArrayReader.h
+../../../Backendless/SDK/ios/backendless/include/V3ByteArrayReader.h

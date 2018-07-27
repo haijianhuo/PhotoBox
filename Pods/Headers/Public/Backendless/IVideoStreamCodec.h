@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/IVideoStreamCodec.h
+../../../Backendless/SDK/ios/backendless/include/IVideoStreamCodec.h

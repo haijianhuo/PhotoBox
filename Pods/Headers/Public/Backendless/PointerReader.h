@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/PointerReader.h
+../../../Backendless/SDK/ios/backendless/include/PointerReader.h

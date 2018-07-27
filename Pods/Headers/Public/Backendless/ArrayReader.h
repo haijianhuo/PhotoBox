@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/ArrayReader.h
+../../../Backendless/SDK/ios/backendless/include/ArrayReader.h

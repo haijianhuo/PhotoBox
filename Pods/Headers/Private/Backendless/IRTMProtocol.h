@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/IRTMProtocol.h
+../../../Backendless/SDK/ios/backendless/include/IRTMProtocol.h

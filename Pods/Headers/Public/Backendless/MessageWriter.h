@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/MessageWriter.h
+../../../Backendless/SDK/ios/backendless/include/MessageWriter.h

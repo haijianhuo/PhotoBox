@@ -28,7 +28,6 @@ typedef enum {
 } FilePermissionOperation;
 
 @class Fault;
-@protocol IResponder;
 
 @interface FilePermission : NSObject
 
@@ -41,26 +40,6 @@ typedef enum {
 -(id)denyForAllUsers:(NSString *)url operation:(FilePermissionOperation)operation;
 -(id)grantForAllRoles:(NSString *)url operation:(FilePermissionOperation)operation;
 -(id)denyForAllRoles:(NSString *)url operation:(FilePermissionOperation)operation;
-
-// sync methods with fault option
--(BOOL)grantForUser:(NSString *)userId url:(NSString *)url operation:(FilePermissionOperation)operation error:(Fault **)fault;
--(BOOL)denyForUser:(NSString *)userId url:(NSString *)url operation:(FilePermissionOperation)operation error:(Fault **)fault;
--(BOOL)grantForRole:(NSString *)roleName url:(NSString *)url operation:(FilePermissionOperation)operation error:(Fault **)fault;
--(BOOL)denyForRole:(NSString *)roleName url:(NSString *)url operation:(FilePermissionOperation)operation error:(Fault **)fault;
--(BOOL)grantForAllUsers:(NSString *)url operation:(FilePermissionOperation)operation error:(Fault **)fault;
--(BOOL)denyForAllUsers:(NSString *)url operation:(FilePermissionOperation)operation error:(Fault **)fault;
--(BOOL)grantForAllRoles:(NSString *)url operation:(FilePermissionOperation)operation error:(Fault **)fault;
--(BOOL)denyForAllRoles:(NSString *)url operation:(FilePermissionOperation)operation error:(Fault **)fault;
-
-// async methods with responder
--(void)grantForUser:(NSString *)userId url:(NSString *)url operation:(FilePermissionOperation)operation responder:(id <IResponder>)responder;
--(void)denyForUser:(NSString *)userId url:(NSString *)url operation:(FilePermissionOperation)operation responder:(id <IResponder>)responder;
--(void)grantForRole:(NSString *)roleName url:(NSString *)url operation:(FilePermissionOperation)operation responder:(id <IResponder>)responder;
--(void)denyForRole:(NSString *)roleName url:(NSString *)url operation:(FilePermissionOperation)operation responder:(id <IResponder>)responder;
--(void)grantForAllUsers:(NSString *)url operation:(FilePermissionOperation)operation responder:(id <IResponder>)responder;
--(void)denyForAllUsers:(NSString *)url operation:(FilePermissionOperation)operation responder:(id <IResponder>)responder;
--(void)grantForAllRoles:(NSString *)url operation:(FilePermissionOperation)operation responder:(id <IResponder>)responder;
--(void)denyForAllRoles:(NSString *)url operation:(FilePermissionOperation)operation responder:(id <IResponder>)responder;
 
 // async methods with block-based callbacks
 -(void)grantForUser:(NSString *)userId url:(NSString *)url operation:(FilePermissionOperation)operation response:(void(^)(id))responseBlock error:(void(^)(Fault *))errorBlock;

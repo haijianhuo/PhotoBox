@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/MetaData.h
+../../../Backendless/SDK/ios/backendless/include/MetaData.h

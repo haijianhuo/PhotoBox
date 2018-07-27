@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/AMFHeaderWriter.h
+../../../Backendless/SDK/ios/backendless/include/AMFHeaderWriter.h

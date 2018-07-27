@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/BinaryCodec.h
+../../../Backendless/SDK/ios/backendless/include/BinaryCodec.h

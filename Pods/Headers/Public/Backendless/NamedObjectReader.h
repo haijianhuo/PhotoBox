@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/NamedObjectReader.h
+../../../Backendless/SDK/ios/backendless/include/NamedObjectReader.h

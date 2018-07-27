@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/AMFMessageWriter.h
+../../../Backendless/SDK/ios/backendless/include/AMFMessageWriter.h

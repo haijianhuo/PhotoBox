@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/UndefinedTypeReader.h
+../../../Backendless/SDK/ios/backendless/include/UndefinedTypeReader.h

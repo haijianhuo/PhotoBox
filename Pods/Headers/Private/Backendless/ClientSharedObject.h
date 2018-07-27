@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/ClientSharedObject.h
+../../../Backendless/SDK/ios/backendless/include/ClientSharedObject.h

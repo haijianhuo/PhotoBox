@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/ITypeWriter.h
+../../../Backendless/SDK/ios/backendless/include/ITypeWriter.h

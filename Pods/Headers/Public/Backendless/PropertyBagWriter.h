@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/PropertyBagWriter.h
+../../../Backendless/SDK/ios/backendless/include/PropertyBagWriter.h

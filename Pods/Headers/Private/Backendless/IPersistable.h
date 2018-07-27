@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/IPersistable.h
+../../../Backendless/SDK/ios/backendless/include/IPersistable.h

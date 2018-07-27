@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/FlashorbBinaryReader.h
+../../../Backendless/SDK/ios/backendless/include/FlashorbBinaryReader.h

@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/NotifyEvent.h
+../../../Backendless/SDK/ios/backendless/include/NotifyEvent.h

@@ -22,7 +22,6 @@
 #import <Foundation/Foundation.h>
 #import "IAtomicCounters.h"
 
-@protocol IResponder;
 @class Fault;
 
 @interface AtomicCounters : NSObject
@@ -33,32 +32,10 @@
 -(NSNumber *)incrementAndGet:(NSString *)counterName;
 -(NSNumber *)getAndDecrement:(NSString *)counterName;
 -(NSNumber *)decrementAndGet:(NSString *)counterName;
--(NSNumber *)addAndGet:(NSString *)counterName value:(long)value;
--(NSNumber *)getAndAdd:(NSString *)counterName value:(long)value;
--(NSNumber *)compareAndSet:(NSString *)counterName expected:(long)expected updated:(long)updated;
+-(NSNumber *)addAndGet:(NSString *)counterName value:(NSNumber *)value;
+-(NSNumber *)getAndAdd:(NSString *)counterName value:(NSNumber *)value;
+-(NSNumber *)compareAndSet:(NSString *)counterName expected:(NSNumber *)expected updated:(NSNumber *)updated;
 -(id)reset:(NSString *)counterName;
-
-// sync methods with fault option
--(NSNumber *)get:(NSString *)counterName fault:(Fault **)fault;
--(NSNumber *)getAndIncrement:(NSString *)counterName fault:(Fault **)fault;
--(NSNumber *)incrementAndGet:(NSString *)counterName fault:(Fault **)fault;
--(NSNumber *)getAndDecrement:(NSString *)counterName fault:(Fault **)fault;
--(NSNumber *)decrementAndGet:(NSString *)counterName fault:(Fault **)fault;
--(NSNumber *)addAndGet:(NSString *)counterName value:(long)value fault:(Fault **)fault;
--(NSNumber *)getAndAdd:(NSString *)counterName value:(long)value fault:(Fault **)fault;
--(NSNumber *)compareAndSet:(NSString *)counterName expected:(long)expected updated:(long)updated fault:(Fault **)fault;
--(BOOL)reset:(NSString *)counterName fault:(Fault **)fault;
-
-// async methods with responder
--(void)get:(NSString *)counterName responder:(id<IResponder>)responder;
--(void)getAndIncrement:(NSString *)counterName responder:(id<IResponder>)responder;
--(void)incrementAndGet:(NSString *)counterName responder:(id<IResponder>)responder;
--(void)getAndDecrement:(NSString *)counterName responder:(id<IResponder>)responder;
--(void)decrementAndGet:(NSString *)counterName responder:(id<IResponder>)responder;
--(void)addAndGet:(NSString *)counterName value:(long)value responder:(id<IResponder>)responder;
--(void)getAndAdd:(NSString *)counterName value:(long)value responder:(id<IResponder>)responder;
--(void)compareAndSet:(NSString *)counterName expected:(long)expected updated:(long)updated responder:(id<IResponder>)responder;
--(void)reset:(NSString *)counterName responder:(id<IResponder>)responder;
 
 // async methods with block-based callbacks
 -(void)get:(NSString *)counterName response:(void (^)(NSNumber *))responseBlock error:(void (^)(Fault *))errorBlock;
@@ -66,9 +43,9 @@
 -(void)incrementAndGet:(NSString *)counterName response:(void (^)(NSNumber *))responseBlock error:(void (^)(Fault *))errorBlock;
 -(void)getAndDecrement:(NSString *)counterName response:(void (^)(NSNumber *))responseBlock error:(void (^)(Fault *))errorBlock;
 -(void)decrementAndGet:(NSString *)counterName response:(void (^)(NSNumber *))responseBlock error:(void (^)(Fault *))errorBlock;
--(void)addAndGet:(NSString *)counterName value:(long)value response:(void (^)(NSNumber *))responseBlock error:(void (^)(Fault *))errorBlock;
--(void)getAndAdd:(NSString *)counterName value:(long)value response:(void (^)(NSNumber *))responseBlock error:(void (^)(Fault *))errorBlock;
--(void)compareAndSet:(NSString *)counterName expected:(long)expected updated:(long)updated response:(void (^)(NSNumber *))responseBlock error:(void (^)(Fault *))errorBlock;
+-(void)addAndGet:(NSString *)counterName value:(NSNumber *)value response:(void (^)(NSNumber *))responseBlock error:(void (^)(Fault *))errorBlock;
+-(void)getAndAdd:(NSString *)counterName value:(NSNumber *)value response:(void (^)(NSNumber *))responseBlock error:(void (^)(Fault *))errorBlock;
+-(void)compareAndSet:(NSString *)counterName expected:(NSNumber *)expected updated:(NSNumber *)updated response:(void (^)(NSNumber *))responseBlock error:(void (^)(Fault *))errorBlock;
 -(void)reset:(NSString *)counterName response:(void (^)(id))responseBlock error:(void (^)(Fault *))errorBlock;
 
 // IAtomicCounters factory

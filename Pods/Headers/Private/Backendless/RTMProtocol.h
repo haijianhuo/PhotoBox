@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/RTMProtocol.h
+../../../Backendless/SDK/ios/backendless/include/RTMProtocol.h

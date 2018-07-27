@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/AMFBodyWriter.h
+../../../Backendless/SDK/ios/backendless/include/AMFBodyWriter.h

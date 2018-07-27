@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/ArrayWriter.h
+../../../Backendless/SDK/ios/backendless/include/ArrayWriter.h

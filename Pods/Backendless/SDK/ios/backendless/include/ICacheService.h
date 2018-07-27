@@ -21,37 +21,18 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol IResponder;
 @class Fault;
 
 @protocol ICacheService <NSObject>
 
 // sync methods with fault return (as exception)
--(id)put:(id)entity;
--(id)put:(id)entity timeToLive:(int)seconds;
+-(void)put:(id)entity;
+-(void)put:(id)entity timeToLive:(int)seconds;
 -(id)get;
 -(NSNumber *)contains;
 -(id)expireIn:(int)seconds;
 -(id)expireAt:(NSDate *)timestamp;
 -(id)remove;
-
-// sync methods with fault option
--(BOOL)put:(id)entity fault:(Fault **)fault;
--(BOOL)put:(id)entity timeToLive:(int)seconds fault:(Fault **)fault;
--(id)get:(Fault **)fault;
--(NSNumber *)contains:(Fault **)fault;
--(BOOL)expireIn:(int)seconds fault:(Fault **)fault;
--(BOOL)expireAt:(NSDate *)timestamp fault:(Fault **)fault;
--(BOOL)remove:(Fault **)fault;
-
-// async methods with responder
--(void)put:(id)entity responder:(id<IResponder>)responder;
--(void)put:(id)entity timeToLive:(int)seconds responder:(id<IResponder>)responder;
--(void)getToResponder:(id<IResponder>)responder;
--(void)containsToResponder:(id<IResponder>)responder;
--(void)expireIn:(int)seconds responder:(id<IResponder>)responder;
--(void)expireAt:(NSDate *)timestamp responder:(id<IResponder>)responder;
--(void)removeToResponder:(id<IResponder>)responder;
 
 // async methods with block-based callback
 -(void)put:(id)entity response:(void (^)(id))responseBlock error:(void (^)(Fault *))errorBlock;

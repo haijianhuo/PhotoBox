@@ -1,1 +1,1 @@
-../../../Backendless/SDK/ios/CommLibiOS/include/AmfV3Formatter.h
+../../../Backendless/SDK/ios/backendless/include/AmfV3Formatter.h

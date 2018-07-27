@@ -1,13 +1,13 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
-EMBEDDED_CONTENT_CONTAINS_SWIFT = YES
-FRAMEWORK_SEARCH_PATHS = $(inherited) "$PODS_CONFIGURATION_BUILD_DIR/ImagePicker" "$PODS_CONFIGURATION_BUILD_DIR/JSQCoreDataKit" "$PODS_CONFIGURATION_BUILD_DIR/JTSImageViewController" "$PODS_CONFIGURATION_BUILD_DIR/SDWebImage"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/ImagePicker" "${PODS_CONFIGURATION_BUILD_DIR}/JSQCoreDataKit" "${PODS_CONFIGURATION_BUILD_DIR}/JTSImageViewController" "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
 HEADER_SEARCH_PATHS = $(inherited) "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/Backendless"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-LIBRARY_SEARCH_PATHS = $(inherited) "$(SRCROOT)/Pods/Backendless/SDK/ios/backendless" "$(SRCROOT)/Pods/Backendless/SDK/ios/CommLibiOS"
-OTHER_CFLAGS = $(inherited) -iquote "$PODS_CONFIGURATION_BUILD_DIR/ImagePicker/ImagePicker.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/JSQCoreDataKit/JSQCoreDataKit.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/JTSImageViewController/JTSImageViewController.framework/Headers" -iquote "$PODS_CONFIGURATION_BUILD_DIR/SDWebImage/SDWebImage.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Backendless"
-OTHER_LDFLAGS = $(inherited) -l"CommLibiOS" -l"backendless" -l"sqlite3" -l"z" -framework "CFNetwork" -framework "CoreData" -framework "CoreGraphics" -framework "CoreLocation" -framework "Foundation" -framework "ImagePicker" -framework "JSQCoreDataKit" -framework "JTSImageViewController" -framework "MapKit" -framework "SDWebImage" -framework "SafariServices" -framework "Security" -framework "SystemConfiguration" -framework "UIKit"
+LIBRARY_SEARCH_PATHS = $(inherited) "$(SRCROOT)/Pods/Backendless/SDK/ios/backendless"
+OTHER_CFLAGS = $(inherited) -iquote "${PODS_CONFIGURATION_BUILD_DIR}/ImagePicker/ImagePicker.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/JSQCoreDataKit/JSQCoreDataKit.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/JTSImageViewController/JTSImageViewController.framework/Headers" -iquote "${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.framework/Headers" -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/Backendless"
+OTHER_LDFLAGS = $(inherited) -l"backendless" -framework "CoreLocation" -framework "Foundation" -framework "ImagePicker" -framework "JSQCoreDataKit" -framework "JTSImageViewController" -framework "SDWebImage" -framework "Security" -framework "SystemConfiguration"
 OTHER_SWIFT_FLAGS = $(inherited) "-D" "COCOAPODS"
-PODS_BUILD_DIR = $BUILD_DIR
-PODS_CONFIGURATION_BUILD_DIR = $PODS_BUILD_DIR/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_BUILD_DIR = ${BUILD_DIR}
+PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
+PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
 PODS_ROOT = ${SRCROOT}/Pods
