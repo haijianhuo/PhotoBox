@@ -3,7 +3,7 @@ Cloud Photos for iOS.
 
 ## About
 
-PhotoBox is written in Swift 3/Objective C.
+PhotoBox is written in Swift 4.1/Objective C.
 
 The following design patterns or skills were used:
 
@@ -36,5 +36,5 @@ Build and run the app with Xcode, the server side table schema will be created a
 
 ## Requirements
 
-- iOS 9.0+
-- Xcode 8.3.2
+- iOS 10.3+
+- Xcode 9.4.1

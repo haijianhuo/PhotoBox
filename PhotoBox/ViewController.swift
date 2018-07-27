@@ -139,15 +139,14 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         config.noImagesTitle = "Sorry! There are no images here!"
         config.recordLocation = false
         
-        let imagePicker = ImagePickerController()
-        imagePicker.configuration = config
+        let imagePicker = ImagePickerController(configuration: config)
         imagePicker.imageLimit = 1
         imagePicker.delegate = self
 
         self.present(imagePicker, animated: true, completion: nil)
     }
     
-    func tapHandler(sender: UITapGestureRecognizer) {
+    @objc func tapHandler(sender: UITapGestureRecognizer) {
         if sender.state == .ended {
             self.zoomImage(imageView: self.imageView, imageUrl: nil)
         }
@@ -295,7 +294,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         self.collectionView.addSubview(refreshControl)
     }
     
-    func syncData() {
+    @objc func syncData() {
         
         DispatchQueue.main.async() {
             
@@ -319,8 +318,8 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
 
     func updateRefreshDate() {
         let title = "Last update: \(self.refreshDateFormatter.string(from: Date()))"
-        let attrsDictionary = [NSForegroundColorAttributeName: UIColor.white]
-        let attributedTitle = NSAttributedString.init(string: title, attributes: attrsDictionary)
+        let attrsDictionary = [NSAttributedStringKey.foregroundColor : UIColor.white]
+        let attributedTitle = NSAttributedString(string: title, attributes: attrsDictionary as [NSAttributedStringKey : Any])
         self.refreshControl.attributedTitle = attributedTitle
     }
     
@@ -330,7 +329,7 @@ class ViewController: UIViewController, UICollectionViewDataSource, UICollection
         NotificationCenter.default.addObserver(self, selector:#selector(applicationDidBecomeActiveNotification(_:)), name:NSNotification.Name.UIApplicationDidBecomeActive, object:nil)
     }
     
-    func applicationDidBecomeActiveNotification(_ notification: NSNotification?) {
+    @objc func applicationDidBecomeActiveNotification(_ notification: NSNotification?) {
         self.syncData()
     }
 

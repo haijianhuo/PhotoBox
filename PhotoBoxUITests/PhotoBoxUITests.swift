@@ -50,8 +50,8 @@ class PhotoBoxUITests: XCTestCase {
         app.children(matching: .window).element(boundBy: 0).children(matching: .other).element(boundBy: 1).buttons["Delete"].tap()
         sleep(2)
         
-        XCUIDevice.shared().orientation = .portrait
-        XCUIDevice.shared().orientation = .landscapeLeft
+        XCUIDevice.shared.orientation = .portrait
+        XCUIDevice.shared.orientation = .landscapeLeft
         
         app.collectionViews.children(matching: .cell).element(boundBy: 1).children(matching: .other).element.tap()
         
@@ -64,7 +64,7 @@ class PhotoBoxUITests: XCTestCase {
         let collectionView = element.children(matching: .collectionView).element
         collectionView.swipeDown()
         sleep(2)
-        XCUIDevice.shared().orientation = .portrait
+        XCUIDevice.shared.orientation = .portrait
         collectionView.swipeDown()
         sleep(2)
 

@@ -1,16 +1,16 @@
 PODS:
   - Backendless (4.5.0)
-  - ImagePicker (2.1.1)
-  - JSQCoreDataKit (6.0.3)
+  - ImagePicker (3.0.0)
+  - JSQCoreDataKit (7.0.0)
   - JTSImageViewController (1.5.1)
   - SDWebImage (4.0.0):
     - SDWebImage/Core (= 4.0.0)
   - SDWebImage/Core (4.0.0)
 
 DEPENDENCIES:
-  - Backendless (~> 4.0)
-  - ImagePicker (~> 2.1.0)
-  - JSQCoreDataKit (~> 6.0.2)
+  - Backendless (~> 4.5.0)
+  - ImagePicker (~> 3.0.0)
+  - JSQCoreDataKit (~> 7.0.0)
   - JTSImageViewController (~> 1.5.1)
   - SDWebImage (~> 4.0.0)
 
@@ -24,11 +24,11 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Backendless: ff8d4bcc2ea7ac244f308c592634511dff38df87
-  ImagePicker: fe4c699abb56ff03994fa98d8b02e3883ee118be
-  JSQCoreDataKit: 304674c67bc913221f1c818a6fba999d8cc0d994
+  ImagePicker: 973953c25960fe04729a7082a56194321c6762d2
+  JSQCoreDataKit: bc6f37205d36c379a70c56e829fcbc7e921900c2
   JTSImageViewController: 1f8ce1cc93dab0d0af8e53badeea7528560cfec9
   SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
 
-PODFILE CHECKSUM: 292258b49960e4087a04c5ddafe41cd253ff4f30
+PODFILE CHECKSUM: d870d5a2a129f45b7b19e90555fa1c33927fad69
 
 COCOAPODS: 1.5.3

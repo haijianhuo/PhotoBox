@@ -7,8 +7,8 @@ target 'PhotoBox' do
 
   # Pods for PhotoBox
   # Swift
-  pod 'JSQCoreDataKit',               '~> 6.0.2'
-  pod 'ImagePicker',                  '~> 2.1.0'
+  pod 'JSQCoreDataKit',               '~> 7.0.0'
+  pod 'ImagePicker',                  '~> 3.0.0'
   
   # Objective C
   pod 'Backendless',                  '~> 4.5.0'
